@@ -1,0 +1,321 @@
+{
+  "meta": {
+    "origin": "https://XXXX/platform/?realm=alpha#/journeys/ExtendAuthN",
+    "exportedBy": "ps@pingidentity.com",
+    "exportDate": "2024-12-03T15:33:46.290Z",
+    "exportTool": "platform-admin ui tree export",
+    "exportToolVersion": "1.0",
+    "treesSelectedForExport": [
+      "ExtendAuthN"
+    ],
+    "innerTreesIncluded": []
+  },
+  "trees": {
+    "ExtendAuthN": {
+      "tree": {
+        "_id": "ExtendAuthN",
+        "_rev": "47628227",
+        "identityResource": "managed/alpha_user",
+        "uiConfig": {
+          "categories": "[\"Authentication\"]"
+        },
+        "entryNodeId": "5bc4a053-93a1-4da7-a546-91312d6026a8",
+        "innerTreeOnly": false,
+        "nodes": {
+          "c9762d29-db36-410e-a6c5-491191844822": {
+            "connections": {
+              "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+            },
+            "displayName": "Set Success Details",
+            "nodeType": "SetSuccessDetailsNode",
+            "x": 1177,
+            "y": 34.66666666666663
+          },
+          "5cd98b73-cc8f-49f7-8b1c-51f3caa172c7": {
+            "connections": {
+              "outcome": "e301438c-0bd0-429c-ab0c-66126501069a"
+            },
+            "displayName": "Set Failure Details",
+            "nodeType": "SetFailureDetailsNode",
+            "x": 1416,
+            "y": 273
+          },
+          "b42a1899-c010-4187-a3f6-6e62d224c4af": {
+            "connections": {
+              "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+            },
+            "displayName": "Increment Login Count",
+            "nodeType": "IncrementLoginCountNode",
+            "x": 937,
+            "y": 158
+          },
+          "dfd51a19-bdb1-46a4-92bc-d695502ce86b": {
+            "connections": {
+              "outcome": "b42a1899-c010-4187-a3f6-6e62d224c4af"
+            },
+            "displayName": "Modify Auth Level",
+            "nodeType": "ModifyAuthLevelNode",
+            "x": 741.7999877929688,
+            "y": 152
+          },
+          "062d7af7-521a-4f19-954f-6491cd52a4e4": {
+            "connections": {
+              "CONFIGURATION_FAILED": "5cd98b73-cc8f-49f7-8b1c-51f3caa172c7",
+              "outcome": "70e691a5-1e33-4ac3-a356-e7b6d60d92e0"
+            },
+            "displayName": "Set Success Config Provider",
+            "nodeType": "ConfigProviderNode",
+            "x": 1167,
+            "y": 140
+          },
+          "5bc4a053-93a1-4da7-a546-91312d6026a8": {
+            "connections": {
+              "outcome": "576ffdda-23c1-4c35-9f76-92614eb38956"
+            },
+            "displayName": "Page Node",
+            "nodeType": "PageNode",
+            "x": 160,
+            "y": 177.5
+          },
+          "576ffdda-23c1-4c35-9f76-92614eb38956": {
+            "connections": {
+              "false": "e301438c-0bd0-429c-ab0c-66126501069a",
+              "true": "dfd51a19-bdb1-46a4-92bc-d695502ce86b"
+            },
+            "displayName": "Data Store Decision",
+            "nodeType": "DataStoreDecisionNode",
+            "x": 361,
+            "y": 209
+          }
+        },
+        "description": "Platform Login Tree",
+        "staticNodes": {
+          "70e691a5-1e33-4ac3-a356-e7b6d60d92e0": {
+            "x": 1595,
+            "y": 159
+          },
+          "e301438c-0bd0-429c-ab0c-66126501069a": {
+            "x": 1654,
+            "y": 392.5
+          },
+          "startNode": {
+            "x": 70,
+            "y": 223.33333333333337
+          }
+        },
+        "mustRun": false,
+        "enabled": true
+      },
+      "nodes": {
+        "c9762d29-db36-410e-a6c5-491191844822": {
+          "_id": "c9762d29-db36-410e-a6c5-491191844822",
+          "_rev": "-827483187",
+          "successDetails": {
+            "staticValue": "static_value"
+          },
+          "sessionProperties": {
+            "authLevelSessionProperty": "AuthLevel",
+            "universalIdSessionProperty": "sun.am.UniversalIdentifier"
+          },
+          "_type": {
+            "_id": "SetSuccessDetailsNode",
+            "name": "Set Success Details",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "outcome",
+              "displayName": "Outcome"
+            }
+          ]
+        },
+        "5cd98b73-cc8f-49f7-8b1c-51f3caa172c7": {
+          "_id": "5cd98b73-cc8f-49f7-8b1c-51f3caa172c7",
+          "_rev": "-640087361",
+          "failureMessage": {
+            "en": "Error"
+          },
+          "failureDetails": {
+            "Error_1305": "Config Provider Node Configuration Error"
+          },
+          "_type": {
+            "_id": "SetFailureDetailsNode",
+            "name": "Set Failure Details",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "outcome",
+              "displayName": "Outcome"
+            }
+          ]
+        },
+        "b42a1899-c010-4187-a3f6-6e62d224c4af": {
+          "_id": "b42a1899-c010-4187-a3f6-6e62d224c4af",
+          "_rev": "1867990554",
+          "identityAttribute": "userName",
+          "_type": {
+            "_id": "IncrementLoginCountNode",
+            "name": "Increment Login Count",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "outcome",
+              "displayName": "Outcome"
+            }
+          ]
+        },
+        "dfd51a19-bdb1-46a4-92bc-d695502ce86b": {
+          "_id": "dfd51a19-bdb1-46a4-92bc-d695502ce86b",
+          "_rev": "-1792913496",
+          "authLevelIncrement": 10,
+          "_type": {
+            "_id": "ModifyAuthLevelNode",
+            "name": "Modify Auth Level",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "outcome",
+              "displayName": "Outcome"
+            }
+          ]
+        },
+        "062d7af7-521a-4f19-954f-6491cd52a4e4": {
+          "_id": "062d7af7-521a-4f19-954f-6491cd52a4e4",
+          "_rev": "-117390102",
+          "script": "3d65a417-c4db-4476-b456-f0664c0504ec",
+          "nodeType": "SetSuccessDetailsNode",
+          "scriptInputs": [
+            "*"
+          ],
+          "_type": {
+            "_id": "ConfigProviderNode",
+            "name": "Configuration Provider",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "outcome",
+              "displayName": "Outcome"
+            },
+            {
+              "id": "CONFIGURATION_FAILED",
+              "displayName": "Configuration failure"
+            }
+          ]
+        },
+        "5bc4a053-93a1-4da7-a546-91312d6026a8": {
+          "_id": "5bc4a053-93a1-4da7-a546-91312d6026a8",
+          "_rev": "2112523081",
+          "nodes": [
+            {
+              "_id": "802c52db-2747-481b-830e-217fe4e5d31c",
+              "nodeType": "ValidatedUsernameNode",
+              "displayName": "Platform Username"
+            },
+            {
+              "_id": "2493ba67-d44c-4935-bb84-5413d33df8dc",
+              "nodeType": "ValidatedPasswordNode",
+              "displayName": "Platform Password"
+            }
+          ],
+          "pageDescription": {
+            "en": "New here? <a href=\"#/service/Registration\">Create an account</a><br><a href=\"#/service/ForgottenUsername\">Forgot username?</a><a href=\"#/service/ResetPassword\"> Forgot password?</a>"
+          },
+          "pageHeader": {
+            "en": "Sign In"
+          },
+          "_type": {
+            "_id": "PageNode",
+            "name": "Page Node",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "outcome",
+              "displayName": "Outcome"
+            }
+          ]
+        },
+        "576ffdda-23c1-4c35-9f76-92614eb38956": {
+          "_id": "576ffdda-23c1-4c35-9f76-92614eb38956",
+          "_rev": "-1768705482",
+          "_type": {
+            "_id": "DataStoreDecisionNode",
+            "name": "Data Store Decision",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "true",
+              "displayName": "True"
+            },
+            {
+              "id": "false",
+              "displayName": "False"
+            }
+          ]
+        }
+      },
+      "innerNodes": {
+        "802c52db-2747-481b-830e-217fe4e5d31c": {
+          "_id": "802c52db-2747-481b-830e-217fe4e5d31c",
+          "_rev": "1571350457",
+          "usernameAttribute": "userName",
+          "validateInput": false,
+          "_type": {
+            "_id": "ValidatedUsernameNode",
+            "name": "Platform Username",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "outcome",
+              "displayName": "Outcome"
+            }
+          ]
+        },
+        "2493ba67-d44c-4935-bb84-5413d33df8dc": {
+          "_id": "2493ba67-d44c-4935-bb84-5413d33df8dc",
+          "_rev": "1216127824",
+          "passwordAttribute": "password",
+          "validateInput": false,
+          "_type": {
+            "_id": "ValidatedPasswordNode",
+            "name": "Platform Password",
+            "collection": true
+          },
+          "_outcomes": [
+            {
+              "id": "outcome",
+              "displayName": "Outcome"
+            }
+          ]
+        }
+      },
+      "scripts": {
+        "3d65a417-c4db-4476-b456-f0664c0504ec": {
+          "_id": "3d65a417-c4db-4476-b456-f0664c0504ec",
+          "name": "ds-set-success-config-provider-script",
+          "description": "null",
+          "script": "\"//Create Set Success Messages in AuthN JSON Response\\n//Uses Scripting v1 as Next-Gen not yet supported for this node type\\n\\n/**\\n * Script configuration\\n*/\\nvar config = {\\n    /**\\n     * @property {string} sampleAPI - Sample API endpoint\\n     * \\n     */\\n    sampleAPI: \\\"https://openam-psmeet.forgeblocks.com/monitoring/health\\\",\\n    nodeName: \\\"***set-success-details-node\\\"\\n};\\n\\n/**\\n * Add the node info prefix to a log message\\n * @param {string} message - the message body\\n * @returns a tagged version of the message\\n */\\nfunction tag(message) {\\n    return \\\"***\\\".concat(config.nodeName).concat(\\\": \\\").concat(message);\\n}\\n\\nlogger.error(tag(\\\"Starting Set Success Detail Config Provider Script\\\"));\\n\\nvar request = new org.forgerock.http.protocol.Request();\\nrequest.setUri(config.sampleAPI);\\nrequest.setMethod(\\\"GET\\\");\\nvar response = httpClient.send(request).get();\\n\\n//Use this for string responses\\n//var apiResponse = response.getEntity().getJson();\\n\\n//Use this for JSON responses\\nvar apiResponse = response.getEntity().getString();\\nlogger.error(tag(\\\"Response from: \\\" + config.sampleAPI + \\\": \\\" + apiResponse));\\n\\nconfig = {\\n    \\\"name\\\": \\\"Set Success Details\\\",\\n    \\\"successDetails\\\":{\\\"staticValue\\\":\\\"static_value\\\",\\\"dynamicValueFromAPI\\\":apiResponse},\\n    \\\"sessionProperties\\\":{\\\"universalIdSessionProperty\\\":\\\"sun.am.UniversalIdentifier\\\",\\\"AuthLevelSessionProperty\\\":\\\"AuthLevel\\\"}\\n};\"",
+          "default": false,
+          "language": "JAVASCRIPT",
+          "context": "CONFIG_PROVIDER_NODE",
+          "createdBy": "id=7592e7f5-c85b-4726-97d8-cfd0726fe88c,ou=user,ou=am-config",
+          "creationDate": 1732625606355,
+          "lastModifiedBy": "id=7592e7f5-c85b-4726-97d8-cfd0726fe88c,ou=user,ou=am-config",
+          "lastModifiedDate": 1733237965036,
+          "evaluatorVersion": "1.0"
+        }
+      },
+      "emailTemplates": {},
+      "socialIdentityProviders": {},
+      "themes": [],
+      "saml2Entities": {},
+      "circlesOfTrust": {}
+    }
+  }
+}
